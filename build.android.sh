@@ -6,7 +6,12 @@ fi
 cd ${SIGNALRCLIENT_BUILD_DIR}
 rm -rf *
 
-ANDROID_NDK=$HOME/android-sdk/android-ndk-r18b
+ANDROID_NDK=$HOME/android-sdk/ndk-bundle
+
+if [[ ! -d $ANDROID_NDK ]]; then
+echo "$ANDROID_NDK is NOT a valid direcotry"
+exit -1
+fi
 ROOT=$SIGNALR_ROOT/.build_${AC_PLATFORM}
 OPENSSL_ROOT=${ROOT}/openssl-1.0.2l-${AC_PLATFORM}
 CPPREST_ROOT=${ROOT}/accessapi-artifacts-android-ms/cpprest
@@ -23,9 +28,9 @@ build_signalr() {
     -DANDROID_ABI=$2 \
     -DANDROID_PLATFORM=android-$4 \
     -DANDROID_NATIVE_API_LEVEL=$4 \
-
-
-
+    
+    
+    
     -DACPLATFORM:STRING=${AC_PLATFORM} \
 
     -DCPPREST_INCLUDE_DIR=${CPPREST_ROOT}/include \

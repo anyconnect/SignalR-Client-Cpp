@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage example 
-# bash build.sh <Platforms (iOS|ubuntu|RPi|android)> <cpprest absolute path>
+# bash build.sh <Platforms (iOS|ubuntu|RPi|android)> <signalrclient's build tools absolute path>
 # bash build.sh RPi /home/signalrclient
 
 if [ "$#" -ne 2 ]; then
@@ -20,6 +20,7 @@ esac
 
 export AC_PLATFORM=$AC_PLATFORM
 
+SIGNALR_ROOT=$(echo $SIGNALR_ROOT | sed 's:/*$::')
 export SIGNALR_ROOT=$SIGNALR_ROOT
 # signalrclient directory should contian include files and  
 # all the libraries (boost, openssl etc) for all platform

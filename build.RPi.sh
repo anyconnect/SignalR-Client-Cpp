@@ -12,7 +12,7 @@ BOOST_ROOT=${PLATFORM_ROOT}/boost-1.61-RPi
 CPPRESDSDK_ROOT=${PLATFORM_ROOT}/accessapi-artifacts-RPi-ms/cpprest
 OPENSSL_ROOT=${PLATFORM_ROOT}/openssl-1.0.2l-RPi
 
-command="cmake .. -DCMAKE_TOOLCHAIN_FILE=$HOME/projects/.launchers/automation/build/RPi/RPi.toolchain  \
+command="cmake .. -DCMAKE_TOOLCHAIN_FILE=/opt/RPi/RPi.toolchain \
 -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=false -DBUILD_SAMPLES=true \
 -DUSE_CPPRESTSDK=true \
 -DCMAKE_BUILD_TYPE=Debug  \

@@ -68,7 +68,12 @@ endif()
 if(NOT USE_CPPRESTSDK)
   target_link_libraries(signalrclient)
 else()
-  if(APPLE)
+  if(IOS)
+    target_link_libraries(signalrclient
+      PUBLIC ${CPPREST_LIB}
+      PRIVATE cpprestsdk_boost_internal cpprestsdk_openssl_internal
+    )
+  elseif(APPLE)
     target_link_libraries(signalrclient
       PUBLIC ${CPPREST_LIB}
       PRIVATE OpenSSL::SSL Boost::boost Boost::system Boost::chrono Boost::thread

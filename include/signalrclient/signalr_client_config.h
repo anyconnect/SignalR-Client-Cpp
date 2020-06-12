@@ -4,13 +4,13 @@
 
 #pragma once
 
-#ifdef USE_CPPRESTSDK
+// #ifdef USE_CPPRESTSDK
 #pragma warning (push)
 #pragma warning (disable : 5204 4355 4625 4626 4868)
 #include <cpprest/http_client.h>
 #include <cpprest/ws_client.h>
 #pragma warning (pop)
-#endif
+// #endif
 
 #include "_exports.h"
 #include <map>
@@ -21,7 +21,7 @@ namespace signalr
     class signalr_client_config
     {
     public:
-#ifdef USE_CPPRESTSDK
+// #ifdef USE_CPPRESTSDK
         SIGNALRCLIENT_API void __cdecl set_proxy(const web::web_proxy &proxy);
         // Please note that setting credentials does not work in all cases.
         // For example, Basic Authentication fails under Win32.
@@ -34,17 +34,17 @@ namespace signalr
 
         SIGNALRCLIENT_API web::websockets::client::websocket_client_config __cdecl get_websocket_client_config() const noexcept;
         SIGNALRCLIENT_API void __cdecl set_websocket_client_config(const web::websockets::client::websocket_client_config& websocket_client_config);
-#endif
+// #endif
 
         SIGNALRCLIENT_API const std::map<std::string, std::string>& __cdecl get_http_headers() const noexcept;
         SIGNALRCLIENT_API std::map<std::string, std::string>& __cdecl get_http_headers() noexcept;
         SIGNALRCLIENT_API void __cdecl set_http_headers(const std::map<std::string, std::string>& http_headers);
 
     private:
-#ifdef USE_CPPRESTSDK
+// #ifdef USE_CPPRESTSDK
         web::http::client::http_client_config m_http_client_config;
         web::websockets::client::websocket_client_config m_websocket_client_config;
-#endif
+// #endif
         std::map<std::string, std::string> m_http_headers;
     };
 }

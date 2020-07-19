@@ -7,7 +7,7 @@
 
 namespace signalr
 {
-#ifdef USE_CPPRESTSDK
+// #ifdef USE_CPPRESTSDK
     void signalr_client_config::set_proxy(const web::web_proxy &proxy)
     {
         m_http_client_config.set_proxy(proxy);
@@ -39,7 +39,7 @@ namespace signalr
     {
         m_websocket_client_config = websocket_client_config;
     }
-#endif
+// #endif
 
     const std::map<std::string, std::string>& signalr_client_config::get_http_headers() const noexcept
     {

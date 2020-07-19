@@ -2,7 +2,11 @@ packages/
 Debug/
 Release/
 out/
-build.debug/
-build.release/
+build.debug
+build.release
+build.ubuntu
+build.iOS
+build.RPi
+build.android
 .vs/
 *.vcxproj.user
